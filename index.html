@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sangram-Mitra | AI Skill Gap, Employment & Outcome Tracking Platform</title>
+  <meta name="description" content="Sangram-Mitra is a comprehensive unified platform for AI-powered Skill Gap Detection, Training Verification, 3/6/12-Month Retention Tracking, and District-Level Employment Analytics.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. WELCOME / LANDING SPLASH SCREEN
+       ========================================================================= -->
+  <section id="welcomeScreen">
+    <!-- Floating Theme Switcher on Welcome -->
+    <div style="position:absolute; top:24px; right:28px; z-index:10;">
+      <button class="theme-toggle-btn" id="welcomeThemeToggleBtn" title="Toggle Light / Dark Theme" aria-label="Toggle Theme">
+        🌓
+      </button>
+    </div>
+
+    <div class="welcome-shell">
+      <div class="welcome-content">
+        <div class="welcome-badge-wrapper">
+          <img class="welcome-logo" id="mainWelcomeLogo" src="assets/logo.svg" alt="Sangram-Mitra Portal Logo">
+        </div>
+        
+        <div class="welcome-gov-tag">
+          <span>🇮🇳</span> Smart India Hackathon &bull; State Skilling &amp; Employment Mission
+        </div>
+        
+        <h1 class="welcome-brand">Sangram-<span class="text-gradient">Mitra</span></h1>
+        <h2 class="welcome-tagline">Skills Today. <span>Employment Tomorrow.</span></h2>
+        
+        <p class="welcome-copy">
+          An end-to-end outcome-driven skilling ecosystem. Assess real-time skill gaps, track verifiable training milestones, certify employment offers, monitor 3/6/12-month retention, and empower district-level policy interventions.
+        </p>
+        
+        <div class="welcome-stats-row">
+          <div class="welcome-stat-box">
+            <strong id="statAssessed">248,500+</strong>
+            <span>Youth Assessed</span>
+          </div>
+          <div class="welcome-stat-box">
+            <strong id="statPlaced">184,200+</strong>
+            <span>Verified Placements</span>
+          </div>
+          <div class="welcome-stat-box">
+            <strong id="statRetention">82.4%</strong>
+            <span>6-Month Retention</span>
+          </div>
+          <div class="welcome-stat-box">
+            <strong id="statDistricts">26</strong>
+            <span>Districts Tracked</span>
+          </div>
+        </div>
+        
+        <div class="welcome-cta-group">
+          <button class="welcome-enter-btn" id="enterPortalBtn">
+            <span>Enter Platform Portal</span>
+            <span style="font-size:18px;">&rarr;</span>
+          </button>
+          <button class="btn-secondary" id="directDemoBtn" style="padding:15px 26px; font-weight:800;">
+            ⚡ Quick 1-Click Demo Login
+          </button>
+        </div>
+        
+        <div class="welcome-auto-timer" id="welcomeTimer">
+          Auto-entering portal in <b id="countdownSec">5</b>s (or click Enter)...
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       2. AUTHENTICATION & ROLE ONBOARDING SCREEN
+       ========================================================================= -->
+  <section id="authScreen" class="hidden">
+    <div class="auth-shell">
+      
+      <!-- Left Hero Banner -->
+      <div class="auth-hero">
+        <div class="hero-brand">
+          <img src="assets/logo.svg" alt="Sangram-Mitra Logo">
+          <span>Sangram-<span>Mitra</span></span>
+        </div>
+        
+        <div class="hero-body">
+          <h1>Bridging the <span>Skill-to-Job</span> Divide.</h1>
+          <p>
+            Seamlessly integrating skill diagnostics, personalized learning roadmaps, dual-handshake employer verification, and longitudinal retention tracking.
+          </p>
+          <div class="hero-feature-tags">
+            <span class="hero-tag">🧠 Adaptive Skill Testing</span>
+            <span class="hero-tag">📊 AI Gap Radar</span>
+            <span class="hero-tag">🏢 Verified Employers</span>
+            <span class="hero-tag">📈 Wage Progression</span>
+            <span class="hero-tag">🗺️ District Heatmaps</span>
+            <span class="hero-tag">🔐 DPDP Privacy</span>
+          </div>
+        </div>
+        
+        <div class="hero-footer">
+          Sangram-Mitra Outcome System &bull; Open Standard API &bull; Verified Credentials
+        </div>
+      </div>
+
+      <!-- Right Form Card -->
+      <div class="auth-card">
+        <div class="auth-header" style="position:relative;">
+          <div style="position:absolute; right:0; top:0;">
+            <button class="theme-toggle-btn" id="authThemeToggleBtn" title="Toggle Light / Dark Theme" aria-label="Toggle Theme" style="width:36px; height:36px; font-size:14px;">
+              🌓
+            </button>
+          </div>
+          <img class="brand-logo-img" src="assets/logo.svg" alt="Sangram-Mitra Logo" style="width:58px; height:58px; margin-bottom:10px;">
+          <h2>Welcome to Portal</h2>
+          <p>Select your persona to access tailored analytics &amp; workflows</p>
+        </div>
+
+        <!-- Role Tabs -->
+        <div class="role-tabs">
+          <button class="active" data-role="student" id="tabStudent">🎓 Student</button>
+          <button data-role="employer" id="tabEmployer">🏢 Employer</button>
+          <button data-role="admin" id="tabAdmin">🛡️ Govt Admin</button>
+        </div>
+
+        <!-- Quick 1-Click Demo Logins -->
+        <div class="quick-demo-pills">
+          <span>🚀 Instant Demo:</span>
+          <button class="demo-pill-btn" id="demoStudentBtn">Rahul (Student)</button>
+          <button class="demo-pill-btn" id="demoEmployerBtn">Infosys (Employer)</button>
+          <button class="demo-pill-btn" id="demoAdminBtn">APSSDC (Admin)</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm">
+          <h3 id="loginTitle" style="font-size:16px; margin-bottom:12px;">Student Sign In</h3>
+          
+          <div class="form-group">
+            <label for="loginId">Login ID / Registered Email</label>
+            <input id="loginId" type="text" placeholder="e.g. rahul.kumar@sangram.edu.in or STU-2026-9842" value="rahul.kumar@sangram.edu.in">
+          </div>
+          
+          <div class="form-group">
+            <label for="loginPassword">Security Password</label>
+            <div class="password-wrap">
+              <input id="loginPassword" type="password" placeholder="Enter your password" value="Sangram@2026">
+              <button class="eye-btn" id="eyeLogin" type="button" aria-label="Toggle password visibility">👁️</button>
+            </div>
+          </div>
+          
+          <button class="btn-primary" id="loginBtn" type="button">
+            <span>Sign In to Dashboard</span> &rarr;
+          </button>
+          
+          <div id="loginMsg" class="req"></div>
+          
+          <div id="studentSignupArea" class="auth-switch">
+            New candidate? <button class="link-btn" id="showRegister" type="button">Create verified student account</button>
+          </div>
+        </div>
+
+        <!-- Registration Form (Student) -->
+        <div id="registerForm" class="hidden">
+          <h3 style="font-size:16px; margin-bottom:12px;">Create Student Account</h3>
+          
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <div class="form-group">
+              <label for="regFirstName">First Name</label>
+              <input id="regFirstName" type="text" placeholder="e.g. Rahul">
+            </div>
+            <div class="form-group">
+              <label for="regLastName">Last Name</label>
+              <input id="regLastName" type="text" placeholder="e.g. Kumar">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="regPhone">Mobile Number (Aadhaar Linked)</label>
+            <div style="display:flex; gap:8px;">
+              <input id="regPhone" type="tel" maxlength="10" placeholder="10-digit mobile number">
+              <button class="btn-secondary" id="sendOtpBtn" type="button" style="white-space:nowrap;">Get OTP</button>
+            </div>
+            <div id="otpMessage" class="req"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="regOtp">Enter 6-Digit OTP</label>
+            <input id="regOtp" type="text" maxlength="6" placeholder="Enter received OTP">
+          </div>
+          
+          <div class="form-group">
+            <label for="regEmail">Academic / Personal Email</label>
+            <input id="regEmail" type="email" placeholder="student@example.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="regPassword">Create Password</label>
+            <div class="password-wrap">
+              <input id="regPassword" type="password" placeholder="Min 8 chars with 1 uppercase, number & symbol">
+              <button class="eye-btn" id="eyeReg" type="button">👁️</button>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="regConfirmPassword">Confirm Password</label>
+            <div class="password-wrap">
+              <input id="regConfirmPassword" type="password" placeholder="Re-enter password">
+              <button class="eye-btn" id="eyeRegConfirm" type="button">👁️</button>
+            </div>
+          </div>
+          
+          <button class="btn-primary" id="registerBtn" type="button">
+            <span>Verify &amp; Create Account</span> &rarr;
+          </button>
+          
+          <div id="registerMsg" class="req"></div>
+          
+          <div class="auth-switch">
+            Already registered? <button class="link-btn" id="backLogin" type="button">Back to sign in</button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. MAIN APPLICATION PORTAL
+       ========================================================================= -->
+  <section id="app">
+    <div class="app-layout">
+      
+      <!-- Sidebar Navigation -->
+      <aside class="app-sidebar">
+        <div>
+          <div class="sidebar-header">
+            <div class="sidebar-logo">
+              <img src="assets/logo.svg" alt="Sangram-Mitra Logo">
+              <span>Sangram-<span>Mitra</span></span>
+            </div>
+            <div class="sidebar-role-indicator" id="sidebarRoleBadge">
+              🎓 Student Portal
+            </div>
+          </div>
+          
+          <nav class="sidebar-nav" id="sidebarNav">
+            <div class="sidebar-nav-section">Core Workflow</div>
+            <button class="active" data-page="dashboard"><span class="nav-icon">🏠</span><span>Dashboard</span></button>
+            <button data-page="profile"><span class="nav-icon">👤</span><span>Candidate Profile</span></button>
+            <button data-page="assessment"><span class="nav-icon">🧪</span><span>Skill Assessment</span></button>
+            <button data-page="skillgap"><span class="nav-icon">🧠</span><span>AI Skill Gap Radar</span></button>
+            <button data-page="training"><span class="nav-icon">📚</span><span>Training &amp; Courses</span></button>
+            <button data-page="employment"><span class="nav-icon">💼</span><span>Employment Tracker</span></button>
+            <button data-page="verification"><span class="nav-icon">🏢</span><span>Employer Verification</span></button>
+            <button data-page="followup"><span class="nav-icon">🗓️</span><span>3 / 6 / 12M Retention</span></button>
+            <button data-page="why"><span class="nav-icon">🔎</span><span>Why Not Placed?</span></button>
+            
+            <div class="sidebar-nav-section">Impact &amp; Policy</div>
+            <button data-page="analytics"><span class="nav-icon">🗺️</span><span>District Analytics</span></button>
+            <button data-page="recommend"><span class="nav-icon">🤖</span><span>AI Career Matcher</span></button>
+            <button data-page="privacy"><span class="nav-icon">🔐</span><span>DPDP &amp; Ledger</span></button>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <button class="logout-btn" id="logoutBtn">
+            <span class="nav-icon">🚪</span>
+            <span>Sign Out</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content Container -->
+      <main class="app-main">
+        
+        <!-- Topbar -->
+        <header class="topbar">
+          <div class="topbar-left">
+            <h2>Welcome, <span id="topbarUserName">Rahul Kumar</span>! <span style="font-size:18px;">👋</span></h2>
+            <p id="topbarSubtitle">Skills &rarr; Training &rarr; Employment Verification &rarr; Impact Analytics</p>
+          </div>
+          
+          <div class="topbar-right">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Light / Dark Theme" aria-label="Toggle Theme">
+              🌓
+            </button>
+            
+            <!-- Quick Role Switcher -->
+            <select class="role-switcher-select" id="roleSwitcherSelect" title="Switch User Role Persona">
+              <option value="student">🎓 Persona: Student (Rahul)</option>
+              <option value="employer">🏢 Persona: Employer (Infosys)</option>
+              <option value="admin">🛡️ Persona: Admin (Govt Director)</option>
+            </select>
+            
+            <!-- Notification bell -->
+            <button class="notify-btn" id="notifyBtn" title="Real-time Platform Notifications">
+              🔔
+            </button>
+            
+            <!-- Avatar Badge -->
+            <div class="user-avatar-badge" id="userAvatarBadge">
+              RK
+            </div>
+          </div>
+        </header>
+
+        <!-- =====================================================================
+             VIEW 1: DASHBOARD
+             ===================================================================== -->
+        <div id="dashboard" class="page-view active">
+          <!-- 4 Summary Stats -->
+          <div class="grid-4">
+            <div class="card stat-card">
+              <div class="stat-info">
+                <p>Verified Skill Score</p>
+                <h4 id="dashSkillScore">74/100</h4>
+                <span class="stat-trend up">&uarr; +14% after Python test</span>
+              </div>
+              <div class="stat-icon">🧠</div>
+            </div>
+
+            <div class="card stat-card purple">
+              <div class="stat-info">
+                <p>Courses In Progress</p>
+                <h4 id="dashCoursesCount">3 Active</h4>
+                <span class="stat-trend up">78% average progress</span>
+              </div>
+              <div class="stat-icon">📚</div>
+            </div>
+
+            <div class="card stat-card emerald">
+              <div class="stat-info">
+                <p>Employment Status</p>
+                <h4 id="dashEmpStatus" style="color:#059669;">Employed</h4>
+                <span class="badge">✓ Dual Verified</span>
+              </div>
+              <div class="stat-icon">💼</div>
+            </div>
+
+            <div class="card stat-card amber">
+              <div class="stat-info">
+                <p>3-Month Retention</p>
+                <h4 id="dashRetentionStatus" style="color:#d97706;">100% Active</h4>
+                <span class="badge orange">6M Review Due</span>
+              </div>
+              <div class="stat-icon">📈</div>
+            </div>
+          </div>
+
+          <!-- 2 Main Cards: Career Readiness & AI Gap Insight -->
+          <div class="grid-2" style="margin-top:20px;">
+            <div class="card">
+              <div class="card-header">
+                <h3>👤 Profile &amp; Verification Readiness</h3>
+                <span class="badge blue" id="dashProfilePctBadge">85% Complete</span>
+              </div>
+              <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">
+                Complete remaining GitHub repository link and verification credentials for 100% placement matching.
+              </p>
+              <div class="progress-container">
+                <div class="progress-fill" id="dashProfileProgressFill" style="width: 85%;"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:16px;">
+                <span style="font-size:12px; color:var(--text-muted);">Last verified: <b>05 Aug 2026</b></span>
+                <button class="btn-secondary" onclick="app.navigateTo('profile')">Update Profile &rarr;</button>
+              </div>
+            </div>
+
+            <div class="card" style="background:linear-gradient(135deg, rgba(37,99,235,0.08), rgba(124,58,237,0.08));">
+              <div class="card-header">
+                <h3>🤖 AI Skill Gap Diagnostic</h3>
+                <span class="badge purple">Target: Jr. AI/Data Engineer</span>
+              </div>
+              <p style="font-size:13.5px; color:var(--text-main); margin-bottom:15px; line-height:1.5;">
+                AI detected strong proficiency in <b>Python (82%)</b> and <b>Machine Learning (70%)</b>, but identified high-priority gaps in <b>SQL &amp; Data Modeling (52%)</b> and <b>DSA (45%)</b>.
+              </p>
+              <div style="display:flex; gap:10px;">
+                <button class="btn-primary" style="width:auto;" onclick="app.navigateTo('skillgap')">View Skill Radar &rarr;</button>
+                <button class="btn-secondary" onclick="app.navigateTo('training')">View Targeted Courses</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recommended Next Actions Pill Grid -->
+          <div class="card" style="margin-top:20px;">
+            <div class="card-header">
+              <h3>🎯 Recommended Action Plan</h3>
+              <span class="badge">AI Curated</span>
+            </div>
+            <div class="grid-3">
+              <div class="card" style="padding:16px; background:rgba(241,245,249,0.4); border:1px solid var(--card-border);">
+                <strong style="font-size:15px; display:block; margin-bottom:6px;">1. Retake Adaptive Assessment</strong>
+                <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:12px;">Take 10 quick MCQs to update your verified DSA &amp; SQL scores.</p>
+                <button class="btn-secondary" style="width:100%;" onclick="app.navigateTo('assessment')">Start 5-Min Test &rarr;</button>
+              </div>
+              
+              <div class="card" style="padding:16px; background:rgba(241,245,249,0.4); border:1px solid var(--card-border);">
+                <strong style="font-size:15px; display:block; margin-bottom:6px;">2. SQL Masterclass Module</strong>
+                <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:12px;">Resume module on window functions &amp; query optimization.</p>
+                <button class="btn-secondary" style="width:100%;" onclick="app.navigateTo('training')">Resume Module &rarr;</button>
+              </div>
+
+              <div class="card" style="padding:16px; background:rgba(241,245,249,0.4); border:1px solid var(--card-border);">
+                <strong style="font-size:15px; display:block; margin-bottom:6px;">3. 6-Month Wage Review</strong>
+                <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:12px;">Track scheduled progression from ₹28,500 to ₹32,000.</p>
+                <button class="btn-secondary" style="width:100%;" onclick="app.navigateTo('followup')">View Retention &rarr;</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Breakdown & Training Progress -->
+          <div class="grid-2-1" style="margin-top:20px;">
+            <div class="card">
+              <div class="card-header">
+                <h3>📊 Skill Proficiency Breakdown</h3>
+                <button class="btn-secondary" onclick="app.navigateTo('assessment')">+ Retake Test</button>
+              </div>
+              <div id="dashSkillsList">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3>📚 Enrolled Courses</h3>
+                <span class="badge blue">APSSDC &bull; FutureSkills</span>
+              </div>
+              <div id="dashCourseMiniList">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             VIEW 2: CANDIDATE PROFILE
+             ===================================================================== -->
+        <div id="profile" class="page-view">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2>👤 Candidate Skilling Profile</h2>
+                <p style="color:var(--text-muted); font-size:13px;">Verified student records &amp; institutional enrollment credentials</p>
+              </div>
+              <span class="badge blue" id="profileRoleBadge">Student Profile</span>
+            </div>
+
+            <form id="profileForm" onsubmit="return false;">
+              <div class="grid-2">
+                <div>
+                  <div class="form-group">
+                    <label for="profName">Full Legal Name</label>
+                    <input id="profName" type="text" value="Rahul Kumar">
+                  </div>
+                  <div class="form-group">
+                    <label for="profEmail">Email Address</label>
+                    <input id="profEmail" type="email" value="rahul.kumar@sangram.edu.in">
+                  </div>
+                  <div class="form-group">
+                    <label for="profPhone">Mobile Number (Aadhaar Verified)</label>
+                    <input id="profPhone" type="tel" value="9876543210">
+                  </div>
+                  <div class="form-group">
+                    <label for="profTargetRole">Target Career Aspiration</label>
+                    <select id="profTargetRole">
+                      <option value="Junior Data & AI Engineer" selected>Junior Data & AI Engineer</option>
+                      <option value="Full Stack Web Developer">Full Stack Web Developer</option>
+                      <option value="Cloud & DevOps Associate">Cloud & DevOps Associate</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="form-group">
+                    <label for="profDistrict">Home District</label>
+                    <select id="profDistrict">
+                      <option value="Visakhapatnam" selected>Visakhapatnam</option>
+                      <option value="Vijayawada (NTR)">Vijayawada (NTR)</option>
+                      <option value="Guntur">Guntur</option>
+                      <option value="Tirupati">Tirupati</option>
+                      <option value="Anantapur">Anantapur</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="profCollege">College / Training Institute</label>
+                    <input id="profCollege" type="text" value="Andhra University College of Engineering">
+                  </div>
+                  <div class="form-group">
+                    <label for="profEducation">Degree &amp; Specialization</label>
+                    <input id="profEducation" type="text" value="B.Tech CSE (AI & Machine Learning)">
+                  </div>
+                  <div class="form-group">
+                    <label for="profGradYear">Graduation / Pass-out Year</label>
+                    <input id="profGradYear" type="number" value="2026">
+                  </div>
+                </div>
+              </div>
+
+              <div class="callout-box">
+                <span class="callout-icon">🔐</span>
+                <p>
+                  <b>Verifiable Credential Hash:</b> <code>0x8F9C2B4E1D780299AC31</code> &bull; Verified by Andhra University Registry &amp; APSSDC State Portal.
+                </p>
+              </div>
+
+              <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:20px;">
+                <button class="btn-outline" type="button" onclick="app.resetDemoData()">Reset to Demo Defaults</button>
+                <button class="btn-primary" style="width:auto;" type="button" id="saveProfileBtn">Save Profile Changes &rarr;</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             VIEW 3: SKILL ASSESSMENT QUIZ ENGINE
+             ===================================================================== -->
+        <div id="assessment" class="page-view">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2>🧪 Adaptive Skill Assessment Engine</h2>
+                <p style="color:var(--text-muted); font-size:13px;">AI-evaluated diagnostic test covering Python, SQL, DSA, Cloud &amp; Behavioral STAR logic</p>
+              </div>
+              <span class="badge purple">Live Interactive Test</span>
+            </div>
+
+            <!-- Pre-Assessment Overview -->
+            <div id="quizStartView">
+              <div class="grid-3" style="margin:20px 0;">
+                <div class="card" style="background:rgba(241,245,249,0.5);">
+                  <strong style="font-size:16px;">💻 Technical &amp; Coding</strong>
+                  <p style="font-size:13px; color:var(--text-muted); margin-top:6px;">Data structures, algorithms, time complexity, SQL aggregation &amp; Python internals.</p>
+                </div>
+                <div class="card" style="background:rgba(241,245,249,0.5);">
+                  <strong style="font-size:16px;">☁️ Systems &amp; DevOps</strong>
+                  <p style="font-size:13px; color:var(--text-muted); margin-top:6px;">Cloud computing tiers, Git rebase vs merge, and ML overfitting prevention.</p>
+                </div>
+                <div class="card" style="background:rgba(241,245,249,0.5);">
+                  <strong style="font-size:16px;">🗣️ STAR Employability</strong>
+                  <p style="font-size:13px; color:var(--text-muted); margin-top:6px;">Behavioral scenario articulation, workplace ethics, and pair problem solving.</p>
+                </div>
+              </div>
+
+              <div class="callout-box">
+                <span class="callout-icon">⏱️</span>
+                <p>
+                  <b>Test Duration:</b> 10 Questions &bull; Untimed in demo mode &bull; Instant score recalibration and auto-updated skill radar upon submission.
+                </p>
+              </div>
+
+              <button class="btn-primary" style="width:auto; margin-top:10px;" id="startQuizBtn">
+                <span>Begin Assessment Quiz (10 MCQs)</span> &rarr;
+              </button>
+            </div>
+
+            <!-- Active Quiz Container -->
+            <div id="quizActiveView" class="hidden">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                <span style="font-size:14px; font-weight:700; color:var(--primary);" id="quizProgressLabel">Question 1 of 10</span>
+                <span class="badge blue" id="quizCategoryBadge">Python</span>
+              </div>
+
+              <div class="quiz-question-box">
+                <h3 id="quizQuestionText" style="font-size:17px; line-height:1.45; margin-bottom:20px;">
+                  Question loading...
+                </h3>
+                
+                <div id="quizOptionsContainer">
+                  <!-- Options injected via JavaScript -->
+                </div>
+              </div>
+
+              <div id="quizExplanationBox" class="callout-box hidden">
+                <span class="callout-icon">💡</span>
+                <p id="quizExplanationText"></p>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
+                <button class="btn-outline" id="quizPrevBtn" disabled>&larr; Previous</button>
+                <button class="btn-primary" style="width:auto;" id="quizNextBtn">Next Question &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Quiz Results View -->
+            <div id="quizResultView" class="hidden">
+              <div style="text-align:center; padding:30px 20px;">
+                <div style="font-size:48px; margin-bottom:10px;">🎉</div>
+                <h2>Assessment Complete!</h2>
+                <p style="color:var(--text-muted); margin-bottom:20px;">Your verified skill scores have been updated across the platform.</p>
+                
+                <div class="score-ring-wrap" style="margin-bottom:20px;">
+                  <div class="score-ring-circle" id="resultRingCircle" data-score="80%"></div>
+                </div>
+
+                <div id="quizResultDetails" style="max-width:480px; margin:0 auto 25px;">
+                  <!-- Results breakdown -->
+                </div>
+
+                <div style="display:flex; justify-content:center; gap:14px;">
+                  <button class="btn-primary" style="width:auto;" onclick="app.navigateTo('skillgap')">View Updated Skill Gap &rarr;</button>
+                  <button class="btn-secondary" id="retakeQuizBtn">Retake Quiz</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             VIEW 4: AI SKILL-GAP RADAR & BENCHMARK DETECTOR
+             ===================================================================== -->
+        <div id="skillgap" class="page-view">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2>🧠 AI Skill-Gap Detector &amp; Role Benchmark</h2>
+                <p style="color:var(--text-muted); font-size:13px;">Comparing your verified test score against live market hiring benchmarks</p>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <select id="gapTargetRoleSelect" class="role-switcher-select" style="background:#fff;">
+                  <option value="Junior Data & AI Engineer">Benchmark: Jr Data & AI Engineer</option>
+                  <option value="Full Stack Web Developer">Benchmark: Full Stack Developer</option>
+                  <option value="Cloud & DevOps Associate">Benchmark: Cloud & DevOps Associate</option>
+                </select>
+                <button class="btn-secondary" id="exportPassportBtn">📄 Export Skill Passport</button>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="card" style="background:rgba(241,245,249,0.3);">
+                <h3>Skill Gap Analysis Table</h3>
+                <div class="table-wrap" style="margin-top:12px;">
+                  <table class="custom-table" id="skillGapTable">
+                    <thead>
+                      <tr>
+                        <th>Skill Area</th>
+                        <th>Your Score</th>
+                        <th>Target Required</th>
+                        <th>Gap Delta</th>
+                        <th>Action Status</th>
+                      </tr>
+                    </thead>
+                    <tbody id="skillGapTableBody">
+                      <!-- Injected via JavaScript -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>AI Recommendation Summary</h3>
+                <div class="callout-box" style="margin-top:15px;">
+                  <span class="callout-icon">🎯</span>
+                  <p id="gapAiSummaryText">
+                    <b>Primary Action Area:</b> Your <b>SQL &amp; Data Modeling (52%)</b> and <b>Data Structures (45%)</b> have the highest delta (-23% and -25%). Bridging these two areas will increase your hiring match score from 74% to 92%.
+                  </p>
+                </div>
+
+                <h4 style="margin:20px 0 10px; font-size:15px;">Estimated Bridging Timeline:</h4>
+                <div class="metric-row">
+                  <span>SQL &amp; Query Optimization</span>
+                  <b>3.5 Weeks (Skill India Module)</b>
+                </div>
+                <div class="metric-row">
+                  <span>Data Structures &amp; Problem Solving</span>
+                  <b>4.0 Weeks (APSSDC Accelerator)</b>
+                </div>
+                <div class="metric-row">
+                  <span>Cloud Fundamentals</span>
+                  <b>2.0 Weeks (AWS Academy)</b>
+                </div>
+
+                <button class="btn-primary" style="margin-top:16px;" onclick="app.navigateTo('training')">
+                  <span>Enroll in Fast-Track Training Modules</span> &rarr;
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             VIEW 5: TRAINING & COURSE TRACKING
+             ===================================================================== -->
+        <div id="training" class="page-view">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2>📚 Verifiable Training &amp; Course Roadmap</h2>
+                <p style="color:var(--text-muted); font-size:13px;">Government &amp; industry-partnered skilling programs mapped to your exact gaps</p>
+              </div>
+              <button class="btn-secondary" id="browseCoursesBtn">+ Explore New Courses</button>
+            </div>
+
+            <div class="table-wrap">
+              <table class="custom-table" id="coursesFullTable">
+                <thead>
+                  <tr>
+                    <th>Course Title</th>
+                    <th>Accredited Provider</th>
+                    <th>Duration</th>
+                    <th>Progress</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="coursesTableBody">
+                  <!-- Injected via JavaScript -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout-box" style="margin-top:24px;">
+              <span class="callout-icon">🏅</span>
+              <p>
+                <b>Verifiable Digital Badge:</b> All completed courses issue a cryptographically signed DigiLocker-compatible credential that syncs directly with employer candidate discovery filters.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             VIEW 6: EMPLOYMENT OUTCOME TRACKING
+             ===================================================================== -->
+        <div id="employment" class="page-view">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2>💼 Employment Outcome &amp; Wage Tracker</h2>
+                <p style="color:var(--text-muted); font-size:13px;">Record confirmed job offers, apprenticeship placements, or self-employment outcomes</p>
+              </div>
+              <span class="badge" id="empStatusBadge">✓ Dual Verified</span>
+            </div>
+
+            <form id="employmentForm" onsubmit="return false;">
+              <div class="grid-2">
+                <div>
+                  <div class="form-group">
+                    <label for="empStatusSelect">Employment Status</label>
+                    <select id="empStatusSelect">
+                      <option value="Employed" selected>Employed (Full-Time)</option>
+                      <option value="Apprenticeship / Trainee">Apprenticeship / Trainee</option>
+                      <option value="Self Employed / Entrepreneur">Self Employed / Entrepreneur</option>
+                      <option value="Higher Studies">Higher Studies</option>
+                      <option value="Seeking Employment">Seeking Employment</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="empCompany">Company / Organization</label>
+                    <input id="empCompany" type="text" value="Infosys BPM Tech Lab">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="empRole">Designation / Job Role</label>
+                    <input id="empRole" type="text" value="Associate AI Trainee">
+                  </div>
+                </div>
+
+                <div>
+                  <div class="form-group">
+                    <label for="empSalary">Starting Monthly Salary (INR)</label>
+                    <input id="empSalary" type="number" value="28500">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="empJoiningDate">Offer Joining Date</label>
+                    <input id="empJoiningDate" type="text" value="01 Aug 2026">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Employer Verification Status</label>
+                    <div style="padding:12px 14px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); border-radius:var(--radius-md); font-size:13px; color:#059669; font-weight:700;">
+                      ✓ Verified by HR (ID: EMP-INF-491) &bull; Hash: <code>0x8F9C2B...34E1D</code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:20px;">
+                <button class="btn-secondary" type="button" onclick="app.requestEmployerReverification()">Request Re-Verification</button>
+                <button class="btn-primary" style="width:auto;" type="button" id="saveEmploymentBtn">Update Employment Record &rarr;</button>
+              </div>
+            </form>
+
+            <div style="margin-top:30px;">
+              <h3 style="font-size:17px; margin-bottom:12px;">Employment &amp; Verification Journey</h3>
+              <div class="timeline-track" id="employmentTimelineTrack">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             VIEW 7: EMPLOYER VERIFICATION PORTAL
+             ===================================================================== -->
+        <div id="verification" class="page-view">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2>🏢 Employer Verification &amp; Dual-Handshake Portal</h2>
+                <p style="color:var(--text-muted); font-size:13px;">Review and authenticate employment offers to prevent ghost placements</p>
+              </div>
+              <span class="badge blue">HR Partner Portal</span>
+            </div>
+
+            <div class="grid-3" style="margin-bottom:20px;">
+              <div class="card stat-card">
+                <div class="stat-info">
+                  <p>Partner Employer</p>
+                  <h4>Infosys Ltd</h4>
+                  <span class="badge">Active Recruiter</span>
+                </div>
+                <div class="stat-icon">🏢</div>
+              </div>
+
+              <div class="card stat-card emerald">
+                <div class="stat-info">
+                  <p>Verified Hires</p>
+                  <h4>142 Total</h4>
+                  <span class="stat-trend up">100% genuine outcome</span>
+                </div>
+                <div class="stat-icon">✅</div>
+              </div>
+
+              <div class="card stat-card amber">
+                <div class="stat-info">
+                  <p>Pending Verifications</p>
+                  <h4 id="verQueueCount">2 In Queue</h4>
+                  <span class="badge orange">Action Required</span>
+                </div>
+                <div class="stat-icon">⏳</div>
+              </div>
+            </div>
+
+            <h3>Pending Verification Requests</h3>
+            <div class="table-wrap" style="margin-top:12px;">
+              <table class="custom-table" id="employerVerificationTable">
+                <thead>
+                  <tr>
+                    <th>Verification ID</th>
+                    <th>Candidate Name</th>
+                    <th>Job Role</th>
+                    <th>Monthly Wage</th>
+                    <th>Joining Date</th>
+                    <th>Current Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="employerVerificationBody">
+                  <!-- Injected via JavaScript -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout-box" style="margin-top:20px;">
+              <span class="callout-icon">🛡️</span>
+              <p>
+                <b>Anti-Fraud Dual Handshake:</b> Once verified by the employer, the placement is timestamped on the state outcome ledger. This unlocks performance-based institutional incentives for training partners.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             VIEW 8: 3 / 6 / 12-MONTH RETENTION TRACKING
+             ===================================================================== -->
+        <div id="followup" class="page-view">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2>🗓️ 3 / 6 / 12-Month Retention &amp; Wage Progression</h2>
+                <p style="color:var(--text-muted); font-size:13px;">Longitudinal tracking to ensure sustained livelihoods and positive wage growth</p>
+              </div>
+              <span class="badge purple">Longitudinal Follow-up</span>
+            </div>
+
+            <div class="grid-4" id="retentionMilestonesGrid" style="margin:20px 0;">
+              <!-- Injected via JavaScript -->
+            </div>
+
+            <div class="grid-2">
+              <div class="card" style="background:rgba(241,245,249,0.3);">
+                <h3>📈 Wage Progression Trajectory</h3>
+                <div class="metric-row">
+                  <span>Starting Offer (Month 1)</span>
+                  <b>₹28,500 / month</b>
+                </div>
+                <div class="metric-row">
+                  <span>3-Month Check-in</span>
+                  <b>₹28,500 / month <span class="badge">Verified</span></b>
+                </div>
+                <div class="metric-row">
+                  <span>6-Month Increment Projection</span>
+                  <b>₹32,000 / month <span class="badge orange">+12.2%</span></b>
+                </div>
+                <div class="metric-row">
+                  <span>12-Month Annual Appraisal Target</span>
+                  <b>₹38,000 / month <span class="badge purple">+33.3%</span></b>
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>Retention Verification Checklist</h3>
+                <div class="callout-box">
+                  <span class="callout-icon">📋</span>
+                  <p>
+                    <b>EPFO / Salary Credit Verification:</b> Automated periodic EPFO active status ping confirms continuous employment without intrusive paperwork.
+                  </p>
+                </div>
+                <button class="btn-primary" style="margin-top:10px;" onclick="app.submitFollowupCheckin()">
+                  <span>Complete Next Milestone Check-in</span> &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             VIEW 9: "WHY NOT PLACED?" ROOT CAUSE ANALYZER
+             ===================================================================== -->
+        <div id="why" class="page-view">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2>🔎 "Why Not Placed?" Diagnostic Root-Cause Analyzer</h2>
+                <p style="color:var(--text-muted); font-size:13px;">Pinpointing specific barriers preventing youth from securing or sustaining employment</p>
+              </div>
+              <span class="badge rose">Diagnostic AI</span>
+            </div>
+
+            <div class="table-wrap">
+              <table class="custom-table" id="whyNotPlacedTable">
+                <thead>
+                  <tr>
+                    <th>Diagnostic Dimension</th>
+                    <th>Severity Impact</th>
+                    <th>Root Cause Finding</th>
+                    <th>Priority</th>
+                    <th>Prescribed Intervention</th>
+                  </tr>
+                </thead>
+                <tbody id="whyNotPlacedBody">
+                  <!-- Injected via JavaScript -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card" style="margin-top:24px; background:linear-gradient(135deg, rgba(244,63,94,0.06), rgba(37,99,235,0.06));">
+              <h3>🚀 Automated Personalized Intervention Plan</h3>
+              <p style="font-size:14px; color:var(--text-main); margin:10px 0 16px;">
+                Based on diagnostic findings, the candidate has been automatically matched with:
+              </p>
+              <div class="grid-3">
+                <div class="card" style="padding:14px; background:var(--card-bg);">
+                  <strong>1. SQL Problem Sprint</strong>
+                  <p style="font-size:12px; color:var(--text-muted); margin-top:4px;">15 curated leetcode-style database challenges.</p>
+                </div>
+                <div class="card" style="padding:14px; background:var(--card-bg);">
+                  <strong>2. AI Mock Interview Bot</strong>
+                  <p style="font-size:12px; color:var(--text-muted); margin-top:4px;">Interactive 15-minute voice/video simulation.</p>
+                </div>
+                <div class="card" style="padding:14px; background:var(--card-bg);">
+                  <strong>3. 1-Click Resume Enhancer</strong>
+                  <p style="font-size:12px; color:var(--text-muted); margin-top:4px;">Auto-embed verified project credentials.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             VIEW 10: DISTRICT-LEVEL SKILL GAP & PLACEMENT ANALYTICS
+             ===================================================================== -->
+        <div id="analytics" class="page-view">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2>🗺️ District-Level Skill Demand &amp; Placement Analytics</h2>
+                <p style="color:var(--text-muted); font-size:13px;">Macro intelligence for district collectors, skill officers, and policy planners</p>
+              </div>
+              <div style="display:flex; gap:10px;">
+                <select id="districtFilterSelect" class="role-switcher-select" style="background:#fff;">
+                  <option value="AP-VSKP">District: Visakhapatnam</option>
+                  <option value="AP-VJA">District: Vijayawada (NTR)</option>
+                  <option value="AP-GNT">District: Guntur</option>
+                  <option value="AP-TPT">District: Tirupati</option>
+                  <option value="AP-ATP">District: Anantapur</option>
+                </select>
+                <button class="btn-secondary" id="exportDistrictDataBtn">📊 Export District CSV</button>
+              </div>
+            </div>
+
+            <!-- District KPIs -->
+            <div class="grid-4" id="districtKpiGrid" style="margin:20px 0;">
+              <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Visual Bar Chart of District Placement Rates -->
+            <div class="card" style="margin-bottom:20px;">
+              <div class="card-header">
+                <h3>Statewide District Placement &amp; Retention Heatmap</h3>
+                <span class="badge blue">Live Comparison</span>
+              </div>
+              
+              <div class="district-bar-chart" id="districtBarChart">
+                <!-- Bar pillars injected via JavaScript -->
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="card">
+                <h3>Top Industry Demand Sectors</h3>
+                <div id="districtDemandSectorsList" style="margin-top:12px;">
+                  <!-- Injected via JavaScript -->
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>Acute Local Skill Shortages</h3>
+                <div id="districtSkillShortagesList" style="margin-top:12px;">
+                  <!-- Injected via JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             VIEW 11: AI CAREER & JOB MATCHER
+             ===================================================================== -->
+        <div id="recommend" class="page-view">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2>🤖 AI Career &amp; Verified Job Opportunity Matcher</h2>
+                <p style="color:var(--text-muted); font-size:13px;">Live hiring requisitions matched directly against your verified skill score</p>
+              </div>
+              <span class="badge purple">AI Match Engine</span>
+            </div>
+
+            <div id="jobOpportunitiesList">
+              <!-- Injected via JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             VIEW 12: DPDP PRIVACY & VERIFICATION LEDGER
+             ===================================================================== -->
+        <div id="privacy" class="page-view">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2>🔐 Consent &amp; DPDP 2023 Privacy Center</h2>
+                <p style="color:var(--text-muted); font-size:13px;">Granular data governance, consent management, and immutable verification ledger</p>
+              </div>
+              <span class="badge">DPDP Act Compliant</span>
+            </div>
+
+            <div class="grid-2">
+              <div class="card" style="background:rgba(241,245,249,0.3);">
+                <h3>Data Sharing Permissions</h3>
+                <div style="margin-top:16px;">
+                  <label class="metric-row" style="cursor:pointer;">
+                    <span>
+                      <b>Aadhaar &amp; DigiLocker Verification</b><br>
+                      <small style="color:var(--text-muted);">Used only for genuine candidate identity verification</small>
+                    </span>
+                    <input type="checkbox" id="consentAadhaar" checked style="width:20px; height:20px;">
+                  </label>
+
+                  <label class="metric-row" style="cursor:pointer;">
+                    <span>
+                      <b>Employer Skill Score Sharing</b><br>
+                      <small style="color:var(--text-muted);">Allows verified recruiters to discover your skill passport</small>
+                    </span>
+                    <input type="checkbox" id="consentEmployer" checked style="width:20px; height:20px;">
+                  </label>
+
+                  <label class="metric-row" style="cursor:pointer;">
+                    <span>
+                      <b>Longitudinal 3/6/12M Retention Monitoring</b><br>
+                      <small style="color:var(--text-muted);">Enables EPFO wage milestone check-ins and promotion tracking</small>
+                    </span>
+                    <input type="checkbox" id="consentRetention" checked style="width:20px; height:20px;">
+                  </label>
+
+                  <label class="metric-row" style="cursor:pointer;">
+                    <span>
+                      <b>Anonymized District Research</b><br>
+                      <small style="color:var(--text-muted);">Contributes to aggregated state skill deficit analytics</small>
+                    </span>
+                    <input type="checkbox" id="consentResearch" checked style="width:20px; height:20px;">
+                  </label>
+                </div>
+
+                <button class="btn-primary" style="margin-top:18px;" id="saveConsentBtn">Save Privacy Preferences</button>
+              </div>
+
+              <div class="card">
+                <h3>Immutable Verification Ledger</h3>
+                <p style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">
+                  Every assessment, certificate, and employment handshake is recorded with a cryptographic digest:
+                </p>
+
+                <div class="metric-row">
+                  <span>Student Genesis Record</span>
+                  <code>0x4A1E...89B2</code>
+                </div>
+                <div class="metric-row">
+                  <span>Skill Assessment (Score 74)</span>
+                  <code>0x9C33...21F0</code>
+                </div>
+                <div class="metric-row">
+                  <span>Infosys Employment Handshake</span>
+                  <code>0x8F9C...34E1D</code>
+                </div>
+                <div class="metric-row">
+                  <span>3-Month Retention Check-in</span>
+                  <code>0x22DC...780A</code>
+                </div>
+
+                <div class="callout-box" style="margin-top:18px;">
+                  <span class="callout-icon">🛡️</span>
+                  <p>
+                    <b>Zero-Knowledge Verification:</b> Employers and auditors can verify skill and employment credentials without exposing private personal identifiers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center; color:var(--text-muted); font-size:12px; margin-top:35px;">
+          Sangram-Mitra Portal &bull; Smart India Hackathon Prototype &bull; Real-time AI Skilling &amp; Retention Framework
+        </div>
+
+      </main>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       MODAL POPUP (Generic & Reusable)
+       ========================================================================= -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h3 id="modalTitle" style="font-size:19px;">Modal Title</h3>
+        <button id="modalCloseBtn" style="font-size:22px; color:var(--text-muted);">&times;</button>
+      </div>
+      <div id="modalBody" style="font-size:14px; line-height:1.6; color:var(--text-main);">
+        <!-- Modal content injected dynamically -->
+      </div>
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:24px;" id="modalActions">
+        <button class="btn-outline" id="modalDismissBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast">Notification Message</div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
